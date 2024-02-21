@@ -23,15 +23,8 @@ class Repository {
     }
 
     deleteActivity(id) {
-        // Verificar si existe una actividad con el ID proporcionado
-        const index = this.activities.findIndex(activity => activity.id === id);
-        if (index !== -1) {
-            // Eliminar la actividad si se encuentra
-            this.activities.splice(index, 1);
-            console.log(`Actividad con ID ${id} eliminada correctamente.`);
-        } else {
-            console.log(`No se encontró ninguna actividad con ID ${id}.`);
-        }
+    // Filtrar el arreglo de actividades para excluir la actividad con el ID proporcionado
+    this.activities = this.activities.filter(activity => activity.id !== id);
     }
 }
 
