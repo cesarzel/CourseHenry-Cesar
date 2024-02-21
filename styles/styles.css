@@ -1,7 +1,6 @@
-/* Estilos generales */
 
 body {
-    font-family: 'Protest Strike', sans-serif; /* Utilizamos la fuente Google Fonts */
+    font-family: 'Protest Strike', sans-serif; 
     line-height: 1.6;
     background-color: #f8f8f8;
     margin: 0;
@@ -13,8 +12,8 @@ header {
     color: #fff;
     padding: 20px;
     display: flex;
-    justify-content: space-between; /* Alinea los elementos al inicio y al final del header */
-    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 header h1 {
@@ -35,7 +34,7 @@ nav ul li {
 }
 
 nav ul li:last-child {
-    margin-right: 0; /* Eliminamos el margen derecho del último elemento */
+    margin-right: 0; 
 }
 
 main {
