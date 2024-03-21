@@ -28,28 +28,88 @@ class Repository {
     }
 }
 
-const repository = new Repository();
+const repository = new Repository()
 
-repository.createActivity('Ir a nadar', 
-    'Me encanta nadar',
-    'https://img.europapress.es/fotoweb/fotonoticia_20150807140313_1200.jpg'
-);
-repository.createActivity('Ir a comer', 
-    'Me gusta comer pizza',
-    'https://hips.hearstapps.com/hmg-prod/images/close-up-of-pizza-on-table-royalty-free-image-995467932-1559051477.jpg?resize=2048:*'
-);
-repository.createActivity('Ir a jugar fútbol', 
-    'Es mi deporte favorito y juego los fines de semana',
-    'https://saludycardiologia.com/wp-content/uploads/2021/02/shutterstock_1936196170.jpg'
-);
+function createHTMLActivity(activity){
+    const {id, title, description, imgUrl} = activity
+    
+    const htmlTitle = document.createElement('h3')
+    htmlTitle.innerHTML = title
+    htmlTitle.classList.add('tittle-class')
 
-console.log("Actividades antes de eliminar la actividad con el ID 2:");
-console.log(repository.getAllActivities());
 
-repository.deleteActivity(2);
+    const htmlDescription = document.createElement('p')
+    htmlDescription.innerHTML = description
+    htmlDescription.className = 'description-class'
 
-console.log("Actividades después de eliminar la actividad con el ID 2:");
-console.log(repository.getAllActivities());
+
+    const htmlImg = document.createElement('img')
+    htmlImg.src = imgUrl
+
+
+    
+    const containerHtml = document.createElement('div')
+    containerHtml.appendChild(htmlTitle);
+    containerHtml.appendChild(htmlDescription);
+    containerHtml.appendChild(htmlImg);
+    containerHtml.className='card';
+    containerHtml.id = "activity-card-" + id;
+    return containerHtml
+}
+function convertAllActivities(){
+    const containerActivities = document.querySelector("#container-activities");
+    containerActivities.innerHTML = '';
+    
+    const activities = repository.getAllActivities()
+    const htmlActivities = activities.map((activity) => createHTMLActivity(activity));
+
+    htmlActivities.forEach(activityHtml => {
+        containerActivities.appendChild(activityHtml);
+    })
+}
+function handlerButon(event){
+    event.preventDefault()
+    const titleInput = document.getElementById("title-input");
+    const descriptionInput = document.getElementById("description-input");
+    const imgInput = document.getElementById("img-input");
+
+    const titleValue = titleInput.value
+    const descriptionValue = descriptionInput.value
+    const imgValue = imgInput.value
+
+    if(!titleValue || !descriptionValue || !imgValue ){
+        return alert("POR FAVOR COMPLETAR TODOS LOS CAMPOS");
+    }
+    repository.createActivity(titleValue,descriptionValue,imgValue);
+    convertAllActivities();
+    titleValue = "";
+    descriptionValue = "";
+    imgValue = "";
+}
+
+const button = document.getElementById("create-activity-button");
+button.addEventListener("click",handlerButon);
+
+// repository.createActivity('Ir a nadar', 
+//    'Me encanta nadar',
+//    'https://img.europapress.es/fotoweb/fotonoticia_20150807140313_1200.jpg'
+//);
+//repository.createActivity('Ir a comer', 
+//   'Me gusta comer pizza',
+//   'https://hips.hearstapps.com/hmg-prod/images/close-up-of-pizza-on-table-royalty-free-image-995467932-1559051477.jpg?resize=2048:*'
+//);
+//repository.createActivity('Ir a jugar fútbol', 
+//    'Es mi deporte favorito y juego los fines de semana',
+//    'https://saludycardiologia.com/wp-content/uploads/2021/02/shutterstock_1936196170.jpg'
+//);
+
+//console.log("Actividades antes de eliminar la actividad con el ID 2:");
+//console.log(repository.getAllActivities());
+
+//repository.deleteActivity(2);
+
+//console.log("Actividades después de eliminar la actividad con el ID 2:");
+//console.log(repository.getAllActivities());
 
 //OTRA FORMA DE HACER EL DELETEACTIVITY CON EL SPLICE DIRECTAMENTE SIN ENCONTRAR EL INDICE
 //deleteActivity(id) {
@@ -60,3 +120,4 @@ console.log(repository.getAllActivities());
 //    console.log(`No se encontró ninguna actividad con ID ${id}.`);
 //  }
 //}
+

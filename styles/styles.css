@@ -125,4 +125,38 @@ img {
     width: 200px; /* Ancho igual al de las imágenes */
     font-size: 20px;
 }
+.card {
+    width: 300px; /* Ancho deseado */
+    height: 350px; /* Altura deseada */
+    border: 1px solid #ccc; /* Borde delgadito */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    justify-content: space-between;
+    margin-bottom: 20px; /* Margen inferior */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.card img {
+    max-width: 100%; /* La imagen se ajusta al ancho de la tarjeta */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+.card h3 {
+    font-size: 1.5em; /* Tamaño de fuente para el título */
+    margin-top: 20px; /* Margen superior */
+    color: #333; /* Color del texto */
+}
+
+.card:hover {
+    background-color: #ffcc00; /* Color de fondo al pasar el mouse (amarillo animado) */
+}
+.container-cards {
+    display: flex; /* Hacer que los elementos dentro del contenedor se muestren en línea */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan si no caben en una sola fila */
+    justify-content: flex-start; /* Alinear los elementos al inicio del contenedor horizontalmente */
+    gap: 10px;
+}
+
+
 

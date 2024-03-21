@@ -54,12 +54,21 @@
         </section>
         <!--esta section tiene el form de agregar las cards--> 
         <section>
-            <form action="">
-                <input type="text" placeholder="Nombre de la actividad"/>
-                <textarea name="" id="" cols="30" rows="10" placeholder="Describe la actividad"></textarea>
-                <input type="text" placeholder="Link de la imagen"/>
-                <button type="submit">Agregar Actividad</button>
+            <form action="" id="activies-form">
+                <input type="text" placeholder="Nombre de la actividad" id="title-input"/>
+                <textarea name=""  cols="30" rows="10" placeholder="Describe la actividad"
+                id="description-input"></textarea>
+                <input type="url" placeholder="Link de la imagen" id="img-input"/>
+                <button type="submit" id="create-activity-button">AGREGAR ACTIVIDAD</button>
             </form>
+            &nbsp;
+            &nbsp;
+            <div id="container-activities" class="container-cards">
+                 <!--<div class = "card">
+                <img src="" alt="Esta es mi primera actividad" class="img-class">
+                <h3 class="title-class">Primera Actividad</h3>
+            </div>-->
+            </div>
         </section>
 
     </main>
