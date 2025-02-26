@@ -18,6 +18,10 @@ const postmoviesController = async (req, res) => {
 
         const create = await createMovie(movie)
         res.send(create)
+        res.status(201).json({
+            message: "Película creada exitosamente",
+            movie: newMovie
+        });
 
     }catch (error){
         res.send('Error creando peliculas')
