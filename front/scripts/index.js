@@ -67,6 +67,7 @@ const handleReset = () =>{
     rate.value = "";
     genre.value = "";
     poster.value = "";
+    // comentario de prueba
 };
 
 buttonReset?.addEventListener("click",()=> handleReset());
