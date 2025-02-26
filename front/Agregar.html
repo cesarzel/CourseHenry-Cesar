@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Película</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css"> 
+</head>
+<body class="bg-dark text-light">
+
+    <header class="bg-black text-center py-4">
+        <h1 class="text-danger">Agregar Nueva Película</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-light" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger fw-bold" href="Agregar.html">Agregar Películas</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="Conocenos.html">Contáctanos</a></li>
+                        <li class="nav-item"><a class="nav-link text-light" href="Mision.html">Misión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card bg-dark text-light border border-danger shadow-lg">
+                    <div class="card-body">
+                        <h2 class="card-title text-danger text-center mb-4">Datos de la Película</h2>
+                        <form id="peliculaForm">
+                            <div class="mb-3">
+                                <label for="titulo" class="form-label">Título:</label>
+                                <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ej: El Padrino" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="anio" class="form-label">Año de estreno:</label>
+                                <input type="number" class="form-control" id="anio" name="anio" min="1900" max="2100" placeholder="Ej: 1994" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="director" class="form-label">Director:</label>
+                                <input type="text" class="form-control" id="director" name="director" placeholder="Ej: Christopher Nolan" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="duracion" class="form-label">Duración (en minutos):</label>
+                                <input type="number" class="form-control" id="duracion" name="duracion" min="1" placeholder="Ej: 142" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="genero" class="form-label">Género:</label>
+                                <input type="text" class="form-control" id="genero" name="genero" placeholder="Ej: Acción, Drama" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="calificacion" class="form-label">Calificación (0-10):</label>
+                                <input type="number" class="form-control" id="calificacion" name="calificacion" step="0.1" min="0" max="10" placeholder="Ej: 8.5" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="poster" class="form-label">URL del póster:</label>
+                                <input type="url" class="form-control" id="poster" name="poster" placeholder="Ej: https://example.com/poster.jpg" required>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-danger" id="send">Agregar Película</button>
+                                <button  class="btn btn-warning" id="reset">Limpiar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-4 bg-black text-light">
+        <p>&copy; 2025 CineDark. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="../scripts/formindependiente.js"></script>-->
+    <script src="../public/bundle.js"></script>
+</body>
+</html>
