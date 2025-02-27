@@ -54,7 +54,11 @@ const sendData = () => {
             "Content-Type" : 'application/json'
         }
     })
-    .then((response) => console.log('response', response))
+    .then((response) => {
+        console.log('response', response);
+        alert("pelicula agregado correctamente");
+    })
+
     .catch((error) => console.log(error));
     
 };
